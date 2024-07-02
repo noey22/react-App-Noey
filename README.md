@@ -1,5 +1,5 @@
 # react-App-Noey
-Author : Chumpol Mokarat
+Author : Siriyakorn 
 Class : Information Technology
 E-mail : siriyakorn.son@rmutto.ac.th
 
