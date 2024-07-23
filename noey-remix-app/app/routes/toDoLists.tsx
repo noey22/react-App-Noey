@@ -109,7 +109,8 @@ export default function  ToDoLists () {
         subject.enrollment === false
     );
     const items = enrltems.map (item =>
-        <Item id={item.id}title={item.title} chk={item.checked} desc={item.description} cov={item.cover} ico={item.icon} enr={item.enrollment} />
+        <Item id={item.id}title={item.title} chk={item.checked} key={item.id} desc={item.description} cov={item.cover} ico={item.icon} enr={item.enrollment} />
+
     );
     return (
         <div className="p-5 bg-rose-100">
