@@ -90,7 +90,6 @@ export default function CardLists() {
                         ))}
                     </tbody>
                 </table>
-                
             )}
         </div>
     );
