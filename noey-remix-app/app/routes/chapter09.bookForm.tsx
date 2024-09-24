@@ -24,7 +24,7 @@ export default function BookFrom(){
             if(response.ok){
                 const data = await response.json();
                 alert(`[INFO] ${data.message}`);
-                navigate('./chapter09/bookLists');
+                navigate('/chapter09/bookLists');
 
             }else{
                 alert('[ERR] บันทึกข้อมูลหนังสือไม่สำเร็จ');
