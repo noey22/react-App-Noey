@@ -18,7 +18,7 @@ export default function BookFrom(){
                 headers: {
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formJson)
             });
 
             if(response.ok){

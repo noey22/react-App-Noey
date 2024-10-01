@@ -5,7 +5,7 @@ export default function BookFists(){
     const navigate = useNavigate();
     const [relStatus, setStatus] = useState(true);
     const [booksData, setBooksData] = useState([]);
-    
+    //ดึงข้อมูลเรื่อยๆ   
     useEffect(() => {
         try {
             const fetchData = async() => {
@@ -18,17 +18,40 @@ export default function BookFists(){
                 }
             };
             fetchData();
+            setStatus(false);
         } catch (error) {
             alert('[ERR] เกิดข้อผิดพลาดระหว่างการโหลดข้อมูล ');
         }
-    });
+    },[relStatus]);
 
     if(!Array.isArray(booksData)){
         return <div className="m-5">[ERR] ข้อมูลที่อ่านไม่ใช่รูปแบบของ Array</div>;
     }
     const handleDelete = (bookCode) => {
-        alert(`กำลังลบหนังสือรหัส: ${bookCode}`);
+       alert(`กำลังลบหนังสือรหัส: ${bookCode}`);
+       try {
+        const fetchData = async() => {
+            const data = await fetch(
+                `http://localhost:3000/api/deleteBook/${bookCode}`,
+                { 
+                    method: 'DELETE'
+                }
+            );
+            if(data.ok){
+                const myJson = await data.json();
+                alert(myJson.message);
+            }else{
+                alert('[ERR] การลบข้อมูลไม่สำเร็จ!!');
+            }
+        } 
+        //End  fetchData function
+        fetchData();
+        setStatus(true);
+    } catch (error) {
+        alert('[ERR] เกิดข้อผิดพลาดในระหว่างการลบข้อมูล!!');
     }
+    };
+    
     return (
         <div className="m-3">
             <h1 className="font-bold text=xxl">รายการหนังสือในร้าน</h1>
@@ -41,7 +64,7 @@ export default function BookFists(){
                             {item.bookTitle}<br />
                             <a href={`/chapter09/bookDetail/${item.bookCode}`}>[Detail]</a>
                             <a href={`/chapter09/bookEditForm/${item.bookCode}`}>[Edit]</a>
-                            <a href="./" onClick={(e) => handleDelete(`${item.bookCode}`)}>[Delete]</a>
+                            <a href="#" onClick={(e) => handleDelete(`${item.bookCode}`)}>[Delete]</a>
 
                         </div>
                     )
