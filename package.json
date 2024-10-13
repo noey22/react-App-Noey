@@ -1,0 +1,15 @@
+{
+  "name": "react-app-noey",
+  "version": "1.0.0",
+  "description": "Author : Siriyakorn \r Class : Information Technology\r E-mail : siriyakorn.son@rmutto.ac.th",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@remix-run/node": "^2.11.2"
+  }
+}
